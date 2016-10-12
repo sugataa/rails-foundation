@@ -1,7 +1,7 @@
 postgres:
   image: postgres:9.6.0
   environment:
-    POSTGRES_USER: rails-foundation
+    POSTGRES_USER: <REPLACE WITH POSTGRES USERNAME>
     POSTGRES_PASSWORD: yourpassword
   ports:
     - '5432:5432'

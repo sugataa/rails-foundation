@@ -35,13 +35,9 @@ $ cp docker-compose.yml.example docker-compose.yml
 ```
 
 ### Edit .my_app.env file
-Change the name of the repo name
+Change the name of the repo name to:
 ```shell
 REPO_NAME=my-app
-```
-Change the name of the Database URL
-```shell
-DATABASE_URL=postgresql://my-app:yourpassword@postgres:5432/my-app?encoding=utf8&pool=5&timeout=5000
 ```
 
 ### Edit docker-compose.yml file
@@ -66,17 +62,17 @@ $ docker volume create --name my-app-redis
 
 When data is saved in PostgreSQL or Redis, it is saved to these volumes on your work station. This way, you won't lose your data when you restart the service because Docker containers are stateless.
 
+### Build the Docker Image
+```
+$ docker-compose build
+```
+
 ### Initialize the DB
 OSX/Windows users will want to remove `--­­user "$(id -­u):$(id -­g)"`
 
 ```shell
 $ docker­-compose run --­­user "$(id ­-u):$(id -­g)" my-app rake db:reset
 $ docker­-compose run --­­user "$(id ­-u):$(id -­g)" my-app rake db:migrate
-```
-
-### Build the Docker Image
-```
-$ docker-compose build
 ```
 
 ### Get in there
