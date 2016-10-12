@@ -19,6 +19,7 @@ So, you know how to create regular ol' Rails app...but you want to make that sam
 $ mkdir my-app
 $ cd my-app
 $ git init
+$ cd ..
 ```
 - Download Docker (https://www.docker.com)
 - Make sure docker is running (will vary depending on the platform - Linux vs macOS vs Windows)
