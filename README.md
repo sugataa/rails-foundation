@@ -8,12 +8,19 @@ Docker ft. Rails 5, PostgreSQL, Redis, Sidekiq, Unicorn
 1. Download Docker (https://www.docker.com)
 2. Make sure docker is running (will vary depending on the platform - Linux vs macOS vs Windows)
 
+### Copy over example files
+```shell
+$ cp .rails-foundation.env.example .<REPLACE WITH YOUR REPO NAME>.env
+
+$ cp docker-compose.yml.example docker-compose.yml
+```
+
 ### Create docker volumes
 In the docker-compose.yml file, we're referencing volumes that do not exist. We can create them by running:
 
 ```shell
-$ docker volume create --name app-postgres
-$ docker volume create --name app-redis
+$ docker volume create --name <REPLACE WITH REPO NAME>-postgres
+$ docker volume create --name <REPLACE WITH REPO NAME>-redis
 ```
 
 When data is saved in PostgreSQL or Redis, it is saved to these volumes on your work station. This way, you won't lose your data when you restart the service because Docker containers are stateless.

@@ -6,14 +6,14 @@ postgres:
   ports:
     - '5432:5432'
   volumes:
-    - <REPLACE ME WITH A VOLUME NAME i.e. rails-foundation-postgres>:/var/lib/postgresql/data
+    - rails-foundation-postgres:/var/lib/postgresql/data
 
 redis:
   image: redis:3.0.5
   ports:
     - '6379:6379'
   volumes:
-    - <REPLACE ME WITH A VOLUME NAME i.e. rails-foundation-redis>:/var/lib/redis/data
+    - rails-foundation-redis:/var/lib/redis/data
 
 rails-foundation:
   build: .
@@ -21,11 +21,11 @@ rails-foundation:
     - postgres
     - redis
   volumes:
-    - .:/<REPLACE ME WITH A REPO NAME i.e. rails-foundation>
+    - .:/rails-foundation
   ports:
     - '8000:8000'
   env_file:
-    - <REPLACE ME WITH A ENV FILE NAME i.e. .rails-foundation.env>
+    - .rails-foundation.env
 
 sidekiq:
   build: .
@@ -34,6 +34,6 @@ sidekiq:
     - postgres
     - redis
   volumes:
-    - .:/<REPLACE ME WITH A REPO NAME i.e. rails-foundation>
+    - .:/rails-foundation
   env_file:
-    - <REPLACE ME WITH A ENV FILE NAME i.e. .rails-foundation.env>
+    - .rails-foundation.env
