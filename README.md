@@ -45,7 +45,7 @@ DATABASE_URL=postgresql://my_app:yourpassword@postgres:5432/rails-foundation?enc
 ```
 
 ### Edit docker-compose.yml file
-1. Change variables to match, where appropriate
+Change variables to match, where appropriate
 ```shell
 <REPLACE ME WITH A VOLUME NAME i.e. rails-foundation-postgres> ====> my_app-postgres
 
@@ -60,8 +60,8 @@ DATABASE_URL=postgresql://my_app:yourpassword@postgres:5432/rails-foundation?enc
 In the docker-compose.yml file, we're referencing volumes that do not exist. We can create them by running:
 
 ```shell
-$ docker volume create --name <REPLACE WITH REPO NAME-postgres i.e. rails-foundation-postgres>
-$ docker volume create --name <REPLACE WITH REPO NAME-redis i.e. rails-foundation-redis>
+$ docker volume create --name my_app-postgres>
+$ docker volume create --name my_app-redis>
 ```
 
 When data is saved in PostgreSQL or Redis, it is saved to these volumes on your work station. This way, you won't lose your data when you restart the service because Docker containers are stateless.
@@ -70,8 +70,8 @@ When data is saved in PostgreSQL or Redis, it is saved to these volumes on your 
 OSX/Windows users will want to remove `--­­user "$(id -­u):$(id -­g)"`
 
 ```shell
-$ docker­-compose run --­­user "$(id ­-u):$(id -­g)" <REPLACE WITH REPO NAME i.e. rails-foundation> rake db:reset
-$ docker­-compose run --­­user "$(id ­-u):$(id -­g)" <REPLACE WITH REPO NAME i.e. rails-foundation> rake db:migrate
+$ docker­-compose run --­­user "$(id ­-u):$(id -­g)" my_app rake db:reset
+$ docker­-compose run --­­user "$(id ­-u):$(id -­g)" my_app rake db:migrate
 ```
 
 ### Get in there
