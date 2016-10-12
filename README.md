@@ -1,8 +1,8 @@
-# Sugata's "for dummies" Docker + Rails Foundation App
+# Sugata's "batteries-included" Docker + Rails App
 
 So, you know how to create regular ol' Rails app...but you want to make that same Rails app slick and **dockerized**. Well then, this is the **perfect foundation** for you.
 
-| Tech              | Are           | Version  |
+| Architecture      | Tech          | Version  |
 | ----------------- |:-------------:| --------:|
 | Container         | **Docker**    |  1.12.1  |
 | Backend           | **Rails 5**   |  5.0.0.1 |
@@ -20,21 +20,41 @@ $ mkdir my_app
 $ cd my_app
 $ git init
 ```
-1. Download Docker (https://www.docker.com)
-2. Make sure docker is running (will vary depending on the platform - Linux vs macOS vs Windows)
-3. Clone this repo into the same folder where the  `my_app` folder lives and copy over the contents
+2. Download Docker (https://www.docker.com)
+3. Make sure docker is running (will vary depending on the platform - Linux vs macOS vs Windows)
+4. Clone this repo into the same folder where the  `my_app` folder lives and copy over the contents
 ```shell
 $ git clone https://github.com/sugataa/rails-foundation.git
-$ mv rails-foundation/* my_app
+$ mv rails-foundation/* my_app/
 ```
 
 ### Activate example files
 ```shell
-$ cp .rails-foundation.env.example .<REPLACE WITH YOUR REPO NAME>.env
+$ cp .rails-foundation.env.example .my_app.env
 $ cp docker-compose.yml.example docker-compose.yml
 ```
 
-### Edit example files
+### Edit .my_app.env file
+1. Change the name of the repo name
+```shell
+REPO_NAME=my_app
+```
+2. Change the name of the Database URL
+```shell
+DATABASE_URL=postgresql://my_app:yourpassword@postgres:5432/rails-foundation?encoding=utf8&pool=5&timeout=5000
+```
+
+### Edit docker-compose.yml file
+1. Change variables to match, where appropriate
+```shell
+<REPLACE ME WITH A VOLUME NAME i.e. rails-foundation-postgres> ====> my_app-postgres
+
+<REPLACE ME WITH A VOLUME NAME i.e. rails-foundation-redis> ====> my_app_redis
+
+<REPLACE ME WITH A REPO NAME i.e. my_app>
+
+<REPLACE ME WITH A ENV FILE NAME i.e. .rails-foundation.env> ====> .my_app.env
+```
 
 ### Create docker volumes
 In the docker-compose.yml file, we're referencing volumes that do not exist. We can create them by running:
