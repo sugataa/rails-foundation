@@ -4,17 +4,10 @@ So, you know how to create regular ol' Rails app...but you want to make that sam
 
 All you need is to do is:
 - clone this repo
-- copy over the contents
+- copy over the contents to your rails folder
 - finish the remaining steps
 
 You are getting the following tech:
-
-Container: **Docker**
-Backend: **Rails 5**
-Database: **PostgreSQL**
-Key-Value Store: **Redis**
-Background Worker: **Sidekiq**
-HTPP Server: **Unicorn**
 
 | Tech              | Are           | Version  |
 | ----------------- |:-------------:| --------:|
