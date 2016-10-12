@@ -2,13 +2,6 @@
 
 So, you know how to create regular ol' Rails app...but you want to make that same Rails app slick and **dockerized**. Well then, this is the **perfect foundation** for you.
 
-All you need is to do is:
-- clone this repo
-- copy over the contents to your rails folder
-- finish the remaining steps
-
-You are getting the following tech:
-
 | Tech              | Are           | Version  |
 | ----------------- |:-------------:| --------:|
 | Container         | **Docker**    |  1.12.1  |
@@ -21,15 +14,27 @@ You are getting the following tech:
 ## Getting Started
 
 ### Pre-requisites
+0. Create your Rails application folder
+```shell
+$ mkdir my_app
+$ cd my_app
+$ git init
+```
 1. Download Docker (https://www.docker.com)
 2. Make sure docker is running (will vary depending on the platform - Linux vs macOS vs Windows)
-3. Clone this repo and copy over the contents to your application repo
+3. Clone this repo into the same folder where the  `my_app` folder lives and copy over the contents
+```shell
+$ git clone https://github.com/sugataa/rails-foundation.git
+$ mv rails-foundation/* my_app
+```
 
-### Copy over example files
+### Activate example files
 ```shell
 $ cp .rails-foundation.env.example .<REPLACE WITH YOUR REPO NAME>.env
 $ cp docker-compose.yml.example docker-compose.yml
 ```
+
+### Edit example files
 
 ### Create docker volumes
 In the docker-compose.yml file, we're referencing volumes that do not exist. We can create them by running:
