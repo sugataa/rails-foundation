@@ -74,6 +74,11 @@ $ docker­-compose run --­­user "$(id ­-u):$(id -­g)" my-app rake db:reset
 $ docker­-compose run --­­user "$(id ­-u):$(id -­g)" my-app rake db:migrate
 ```
 
+### Build the Docker Image
+```
+$ docker-compose build
+```
+
 ### Get in there
 ```
 $ docker-compose up

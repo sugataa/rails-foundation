@@ -15,7 +15,7 @@ redis:
   volumes:
     - <REPLACE ME WITH A VOLUME NAME i.e. rails-foundation-redis>:/var/lib/redis/data
 
-rails-foundation:
+<REPLACE ME WITH A REPO NAME i.e. rails-foundation>:
   build: .
   links:
     - postgres
