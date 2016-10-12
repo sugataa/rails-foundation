@@ -35,7 +35,7 @@ $ cp rails-foundation.env.example .my-app.env
 $ cp docker-compose.yml.example docker-compose.yml
 ```
 
-### Edit .my_app.env file
+### Edit .my-app.env file
 Change the name of the repo name to:
 ```shell
 REPO_NAME=my-app
