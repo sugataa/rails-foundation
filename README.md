@@ -66,3 +66,23 @@ Docker:
 Docker Compose allows you to run 1 or more Docker containers easily. You can define everything in YAML and commit this file so that other developers can simply run docker-compose up and have everything running quickly.
 
 Reference: https://semaphoreci.com/community/tutorials/dockerizing-a-ruby-on-rails-application
+
+## Common Commands
+
+See running processes:
+
+```docker ps```
+
+Will give an ouput similar to:
+
+~~~~
+CONTAINER ID        IMAGE                      COMMAND                  CREATED             STATUS              PORTS                    NAMES
+55c96a81e2b5        railsdocker_rails-docker   "/bin/sh -c 'bundle e"   6 minutes ago       Up 6 minutes        0.0.0.0:8000->8000/tcp   railsdocker_rails-docker_1
+d366bb743191        railsdocker_sidekiq        "bundle exec sidekiq "   6 minutes ago       Up 6 minutes                                 railsdocker_sidekiq_1
+8a0941486bdc        redis:3.0.5                "/entrypoint.sh redis"   10 minutes ago      Up 9 minutes        0.0.0.0:6379->6379/tcp   railsdocker_redis_1
+c26564a4943e        postgres:9.4.5             "/docker-entrypoint.s"   10 minutes ago      Up 9 minutes        0.0.0.0:5432->5432/tcp   railsdocker_postgres_1
+~~~~
+
+Connect to the postgres database:
+
+```psql -h localhost -p 5432```
