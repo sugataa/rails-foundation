@@ -16,6 +16,15 @@ Key-Value Store: **Redis**
 Background Worker: **Sidekiq**
 HTPP Server: **Unicorn**
 
+| Tech              | Are           | Version  |
+| ----------------- |:-------------:| --------:|
+| Container         | **Docker**    |  1.12.1  |
+| Backend           | **Rails 5**   |  5.0.0.1 |
+| Database          | **PostgreSQL**|  9.6.0   |
+| Key-Value Store   | **Redis**     |  3.2.0   |
+| Background Worker | **Sidekiq**   |  4.2.2   |
+| HTPP Server       | **Unicorn**   |  5.1.0   |
+
 ## Getting Started
 
 ### Pre-requisites
