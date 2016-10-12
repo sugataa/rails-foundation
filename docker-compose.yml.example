@@ -1,0 +1,39 @@
+postgres:
+  image: postgres:9.6.0
+  environment:
+    POSTGRES_USER: rails-foundation
+    POSTGRES_PASSWORD: yourpassword
+  ports:
+    - '5432:5432'
+  volumes:
+    - <REPLACE ME WITH A VOLUME NAME>:/var/lib/postgresql/data
+
+redis:
+  image: redis:3.0.5
+  ports:
+    - '6379:6379'
+  volumes:
+    - <REPLACE ME WITH A VOLUME NAME>:/var/lib/redis/data
+
+rails-foundation:
+  build: .
+  links:
+    - postgres
+    - redis
+  volumes:
+    - .:/<REPLACE ME WITH A REPO NAME>
+  ports:
+    - '8000:8000'
+  env_file:
+    - <REPLACE ME WITH A ENV FILE NAME>
+
+sidekiq:
+  build: .
+  command: bundle exec sidekiq -C config/sidekiq.yml
+  links:
+    - postgres
+    - redis
+  volumes:
+    - .:/<REPLACE ME WITH A REPO NAME>
+  env_file:
+    - <REPLACE ME WITH A ENV FILE NAME>
