@@ -2,7 +2,7 @@
 FROM ruby:2.3.1-slim
 
 # Optionally set a maintainer name to let people know who made this image.
-MAINTAINER Sugata Acharjya
+MAINTAINER Sugata Acharjya <sugata.a@gmail.com>
 
 # Install dependencies:
 # - build-essential: To ensure certain gems can be compiled
