@@ -28,8 +28,8 @@ When data is saved in PostgreSQL or Redis, it is saved to these volumes on your 
 OSX/Windows users will want to remove `--­­user "$(id -­u):$(id -­g)"`
 
 ```shell
-$ docker­-compose run --­­user "$(id ­-u):$(id -­g)" app rake db:reset
-$ docker­-compose run --­­user "$(id ­-u):$(id -­g)" app rake db:migrate
+$ docker­-compose run --­­user "$(id ­-u):$(id -­g)" <REPLACE WITH REPO NAME i.e. rails-foundation> rake db:reset
+$ docker­-compose run --­­user "$(id ­-u):$(id -­g)" <REPLACE WITH REPO NAME i.e. rails-foundation> rake db:migrate
 ```
 
 ### Get in there
@@ -45,11 +45,32 @@ If everything is working as expected, you should also see the following:
 
 ```shell
 $ docker ps
+
 CONTAINER ID        IMAGE                              COMMAND                  CREATED             STATUS              PORTS                    NAMES
 64be678f7874        railsfoundation_sidekiq            "bundle exec sidekiq "   11 hours ago        Up 4 minutes                                 railsfoundation_sidekiq_1
 dee6bfe41f0c        railsfoundation_rails-foundation   "/bin/sh -c 'bundle e"   11 hours ago        Up 4 minutes        0.0.0.0:8000->8000/tcp   railsfoundation_rails-foundation_1
 0575b80cebc1        redis:3.0.5                        "/entrypoint.sh redis"   11 hours ago        Up 4 minutes        0.0.0.0:6379->6379/tcp   railsfoundation_redis_1
 0e967e872a90        postgres:9.6.0                     "/docker-entrypoint.s"   11 hours ago        Up 4 minutes        0.0.0.0:5432->5432/tcp   railsfoundation_postgres_1
+```
+
+## Common Commands
+
+See running processes:
+
+```
+$ docker ps
+```
+
+Connect to the postgres database:
+
+```
+$ psql -h localhost -p 5432
+```
+
+Log into the rails server:
+
+```
+$ docker-compose run rails-foundation /bin/bash
 ```
 
 ## Background Reading
@@ -86,24 +107,6 @@ Docker:
 
 Docker Compose allows you to run 1 or more Docker containers easily. You can define everything in YAML and commit this file so that other developers can simply run docker-compose up and have everything running quickly.
 
-Reference: https://semaphoreci.com/community/tutorials/dockerizing-a-ruby-on-rails-application
+### Reference:
 
-## Common Commands
-
-See running processes:
-
-```
-$ docker ps
-```
-
-Connect to the postgres database:
-
-```
-$ psql -h localhost -p 5432
-```
-
-Log into the rails server:
-
-```
-docker-compose run rails-foundation /bin/bash
-```
+https://semaphoreci.com/community/tutorials/dockerizing-a-ruby-on-rails-application
