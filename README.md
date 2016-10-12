@@ -39,6 +39,10 @@ Change the name of the repo name to:
 ```shell
 REPO_NAME=my-app
 ```
+Change the Database URL to:
+```shell
+DATABASE_URL=postgresql://my-app:yourpassword@postgres:5432/my-app?encoding=utf8&pool=5&timeout=5000
+```
 
 ### Edit docker-compose.yml file
 Change variables to match, where appropriate
