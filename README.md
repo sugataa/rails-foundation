@@ -3,7 +3,7 @@
 So, you know how to create regular ol' Rails app...but you want to make that same Rails app slick and **dockerized**. Well then, this is the **perfect foundation** for you.
 
 | Architecture      | Tech          | Version  |
-| ----------------- |:-------------:| --------:|
+|:----------------- |:-------------:| --------:|
 | Container         | **Docker**    |  1.12.1  |
 | Backend           | **Rails 5**   |  5.0.0.1 |
 | Database          | **PostgreSQL**|  9.6.0   |
@@ -51,7 +51,7 @@ DATABASE_URL=postgresql://my_app:yourpassword@postgres:5432/rails-foundation?enc
 
 <REPLACE ME WITH A VOLUME NAME i.e. rails-foundation-redis> ====> my_app_redis
 
-<REPLACE ME WITH A REPO NAME i.e. my_app>
+<REPLACE ME WITH A REPO NAME i.e. rails-foundation> ====> my_app
 
 <REPLACE ME WITH A ENV FILE NAME i.e. .rails-foundation.env> ====> .my_app.env
 ```
