@@ -1,10 +1,20 @@
 # Sugata's "for dummies" Docker + Rails Foundation App
 
-So, you know how to create regular ol' Rails app...but you want to make that same Rails app slick and dockerized. Well then, this is the perfect foundation for you.
+So, you know how to create regular ol' Rails app...but you want to make that same Rails app slick and **dockerized**. Well then, this is the **perfect foundation** for you.
 
-All you need is to clone this repo, copy the contents to your folder (or rename this folder), follow the steps
+All you need is to do is:
+- clone this repo
+- copy over the contents
+- finish the remaining steps
 
-Docker ft. Rails 5, PostgreSQL, Redis, Sidekiq, Unicorn
+You are getting the following tech:
+
+Container: **Docker**
+Backend: **Rails 5**
+Database: **PostgreSQL**
+Key-Value Store: **Redis**
+Background Worker: **Sidekiq**
+HTPP Server: **Unicorn**
 
 ## Getting Started
 
