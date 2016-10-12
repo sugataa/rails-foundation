@@ -16,52 +16,52 @@ So, you know how to create regular ol' Rails app...but you want to make that sam
 ### Pre-requisites
 - Create your Rails application folder
 ```shell
-$ mkdir my_app
-$ cd my_app
+$ mkdir my-app
+$ cd my-app
 $ git init
 ```
 - Download Docker (https://www.docker.com)
 - Make sure docker is running (will vary depending on the platform - Linux vs macOS vs Windows)
-- Clone this repo into the same folder where the  `my_app` folder lives and copy over the contents
+- Clone this repo into the same folder where the  `my-app` folder lives and copy over the contents
 ```shell
 $ git clone https://github.com/sugataa/rails-foundation.git
-$ mv rails-foundation/* my_app/
+$ mv rails-foundation/* my-app/
 ```
 
 ### Activate example files
 ```shell
-$ cp .rails-foundation.env.example .my_app.env
+$ cp rails-foundation.env.example .my-app.env
 $ cp docker-compose.yml.example docker-compose.yml
 ```
 
 ### Edit .my_app.env file
 Change the name of the repo name
 ```shell
-REPO_NAME=my_app
+REPO_NAME=my-app
 ```
 Change the name of the Database URL
 ```shell
-DATABASE_URL=postgresql://my_app:yourpassword@postgres:5432/rails-foundation?encoding=utf8&pool=5&timeout=5000
+DATABASE_URL=postgresql://my-app:yourpassword@postgres:5432/my-app?encoding=utf8&pool=5&timeout=5000
 ```
 
 ### Edit docker-compose.yml file
 Change variables to match, where appropriate
 ```shell
-<REPLACE ME WITH A VOLUME NAME i.e. rails-foundation-postgres> ====> my_app-postgres
+<REPLACE ME WITH A VOLUME NAME i.e. rails-foundation-postgres> ====> my-app-postgres
 
-<REPLACE ME WITH A VOLUME NAME i.e. rails-foundation-redis> ====> my_app_redis
+<REPLACE ME WITH A VOLUME NAME i.e. rails-foundation-redis> ====> my-app_redis
 
-<REPLACE ME WITH A REPO NAME i.e. rails-foundation> ====> my_app
+<REPLACE ME WITH A REPO NAME i.e. rails-foundation> ====> my-app
 
-<REPLACE ME WITH A ENV FILE NAME i.e. .rails-foundation.env> ====> .my_app.env
+<REPLACE ME WITH A ENV FILE NAME i.e. .rails-foundation.env> ====> .my-app.env
 ```
 
 ### Create docker volumes
 In the docker-compose.yml file, we're referencing volumes that do not exist. We can create them by running:
 
 ```shell
-$ docker volume create --name my_app-postgres>
-$ docker volume create --name my_app-redis>
+$ docker volume create --name my-app-postgres
+$ docker volume create --name my-app-redis
 ```
 
 When data is saved in PostgreSQL or Redis, it is saved to these volumes on your work station. This way, you won't lose your data when you restart the service because Docker containers are stateless.
@@ -70,8 +70,8 @@ When data is saved in PostgreSQL or Redis, it is saved to these volumes on your 
 OSX/Windows users will want to remove `--­­user "$(id -­u):$(id -­g)"`
 
 ```shell
-$ docker­-compose run --­­user "$(id ­-u):$(id -­g)" my_app rake db:reset
-$ docker­-compose run --­­user "$(id ­-u):$(id -­g)" my_app rake db:migrate
+$ docker­-compose run --­­user "$(id ­-u):$(id -­g)" my-app rake db:reset
+$ docker­-compose run --­­user "$(id ­-u):$(id -­g)" my-app rake db:migrate
 ```
 
 ### Get in there
