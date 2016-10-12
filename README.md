@@ -14,15 +14,15 @@ So, you know how to create regular ol' Rails app...but you want to make that sam
 ## Getting Started
 
 ### Pre-requisites
-0. Create your Rails application folder
+- Create your Rails application folder
 ```shell
 $ mkdir my_app
 $ cd my_app
 $ git init
 ```
-2. Download Docker (https://www.docker.com)
-3. Make sure docker is running (will vary depending on the platform - Linux vs macOS vs Windows)
-4. Clone this repo into the same folder where the  `my_app` folder lives and copy over the contents
+- Download Docker (https://www.docker.com)
+- Make sure docker is running (will vary depending on the platform - Linux vs macOS vs Windows)
+- Clone this repo into the same folder where the  `my_app` folder lives and copy over the contents
 ```shell
 $ git clone https://github.com/sugataa/rails-foundation.git
 $ mv rails-foundation/* my_app/
@@ -35,11 +35,11 @@ $ cp docker-compose.yml.example docker-compose.yml
 ```
 
 ### Edit .my_app.env file
-1. Change the name of the repo name
+Change the name of the repo name
 ```shell
 REPO_NAME=my_app
 ```
-2. Change the name of the Database URL
+Change the name of the Database URL
 ```shell
 DATABASE_URL=postgresql://my_app:yourpassword@postgres:5432/rails-foundation?encoding=utf8&pool=5&timeout=5000
 ```
