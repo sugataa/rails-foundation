@@ -11,7 +11,6 @@ Docker ft. Rails 5, PostgreSQL, Redis, Sidekiq, Unicorn
 ### Copy over example files
 ```shell
 $ cp .rails-foundation.env.example .<REPLACE WITH YOUR REPO NAME>.env
-
 $ cp docker-compose.yml.example docker-compose.yml
 ```
 
@@ -19,8 +18,8 @@ $ cp docker-compose.yml.example docker-compose.yml
 In the docker-compose.yml file, we're referencing volumes that do not exist. We can create them by running:
 
 ```shell
-$ docker volume create --name <REPLACE WITH REPO NAME>-postgres
-$ docker volume create --name <REPLACE WITH REPO NAME>-redis
+$ docker volume create --name <REPLACE WITH REPO NAME-postgres i.e. rails-foundation-postgres>
+$ docker volume create --name <REPLACE WITH REPO NAME-redis i.e. rails-foundation-redis>
 ```
 
 When data is saved in PostgreSQL or Redis, it is saved to these volumes on your work station. This way, you won't lose your data when you restart the service because Docker containers are stateless.
@@ -38,13 +37,11 @@ $ docker­-compose run --­­user "$(id ­-u):$(id -­g)" app rake db:migrate
 $ docker-compose up
 ```
 
-### Finishing up
-
 Navigate to `0.0.0.0:8000` on your favourite browser, and you should be greeted by:
 
 ![Started Rails](https://raw.githubusercontent.com/sugataa/rails-foundation/master/public/complete.png)
 
-You should also see the following:
+If everything is working as expected, you should also see the following:
 
 ```shell
 $ docker ps
@@ -95,18 +92,18 @@ Reference: https://semaphoreci.com/community/tutorials/dockerizing-a-ruby-on-rai
 
 See running processes:
 
-```docker ps```
-
-Will give an ouput similar to:
-
-~~~~
-CONTAINER ID        IMAGE                      COMMAND                  CREATED             STATUS              PORTS                    NAMES
-55c96a81e2b5        railsdocker_rails-docker   "/bin/sh -c 'bundle e"   6 minutes ago       Up 6 minutes        0.0.0.0:8000->8000/tcp   railsdocker_rails-docker_1
-d366bb743191        railsdocker_sidekiq        "bundle exec sidekiq "   6 minutes ago       Up 6 minutes                                 railsdocker_sidekiq_1
-8a0941486bdc        redis:3.0.5                "/entrypoint.sh redis"   10 minutes ago      Up 9 minutes        0.0.0.0:6379->6379/tcp   railsdocker_redis_1
-c26564a4943e        postgres:9.4.5             "/docker-entrypoint.s"   10 minutes ago      Up 9 minutes        0.0.0.0:5432->5432/tcp   railsdocker_postgres_1
-~~~~
+```
+$ docker ps
+```
 
 Connect to the postgres database:
 
-```psql -h localhost -p 5432```
+```
+$ psql -h localhost -p 5432
+```
+
+Log into the rails server:
+
+```
+docker-compose run rails-foundation /bin/bash
+```
